@@ -16,7 +16,7 @@
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ mix('js/app.js') }}"></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -41,13 +41,14 @@
                 <div class="py-6">
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                       {{ $slot }}
+
                     </div>
                 </div>
             </main>
         </div>
 
         @stack('modals')
-
+          {{ $js }}
         @livewireScripts
     </body>
 </html>
