@@ -1,11 +1,12 @@
 <?php
 
+
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Questions;
 
-
-class QuizSeeder extends Seeder
+class QuestionsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,6 @@ class QuizSeeder extends Seeder
      */
     public function run()
     {
-         \App\Models\Quiz::factory(10)->create();
+              \App\Models\Questions::factory(100)->create();
     }
 }
