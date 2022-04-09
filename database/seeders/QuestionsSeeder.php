@@ -4,7 +4,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Questions;
+use App\Models\Question;
 
 class QuestionsSeeder extends Seeder
 {
@@ -15,6 +15,6 @@ class QuestionsSeeder extends Seeder
      */
     public function run()
     {
-              \App\Models\Questions::factory(100)->create();
+              \App\Models\Question::factory(100)->create();
     }
 }

@@ -4,7 +4,8 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class QuestionsFactory extends Factory
+
+class QuestionFactory extends Factory
 {
 
 //  protected $model = Questions::class;
@@ -16,12 +17,12 @@ class QuestionsFactory extends Factory
     public function definition()
     {
         return [
-              'quiz_id'=>rand(1,5),
+              'quiz_id'=>rand(1,10),
               'question'=>$this->faker->sentence(rand(3,7)),
               'answer1'=>$this->faker->sentence(rand(3,7)),
               'answer2'=>$this->faker->sentence(rand(3,7)),
               'answer3'=>$this->faker->sentence(rand(3,7)),
-              'answer4'=>$this->faker->sentence(rand(3,7)),  
+              'answer4'=>$this->faker->sentence(rand(3,7)),
               'correct_answer'=>'answer'.rand(1,4)
         ];
     }
