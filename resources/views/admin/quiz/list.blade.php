@@ -2,16 +2,36 @@
     <x-slot name="header">Quizler</x-slot>
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">
+        <h5 class="card-title float-right">
           <a href="{{route('quizzes.create')}}" class="btn btn-sm btn-primary"><i class='fa fa-plus'></i> Quiz Oluştur</a>
         </h5>
+        <form action="" method="get">
+          <div class="form-row">
+            <div class="col-md-4">
+              <input type="text" name="title"  placeholder="Quiz Adı" value="{{request()->get('title')}}" class="form-control">
+            </div>
+            <div class="col-md-4">
+              <select class="form-control" onchange="this.form.submit()" name="status">
+                <option value="">Durum Seçiniz</option>
+                <option @if(request()->get('status')=='publis') selected @endif value="publis">Aktif</option>
+                <option @if(request()->get('status')=='passive') selected @endif value="passive">Pasif</option>
+                <option @if(request()->get('status')=='draft') selected @endif value="draft">Taslak</option>
+              </select>
+            </div>
+            @if (request()->get('title') || request()->get('status'))
+            <div class="col-md-2">
+              <a href="{{route('quizzes.index')}}" class="btn btn-secondary btn-sm">Sırıfla</a>
+            </div>
+          @endif
+          </div>
+        </form>
         <table class="table table-bordered">
           <thead>
             <tr>
               <th scope="col">Quiz</th>
               <th scope="col">Soru Sayısı</th>
               <th scope="col">Status</th>
-              <th scope="col">Finis Date</th>
+              <th scope="col">Finish Date</th>
               <th scope="col">Process</th>
             </tr>
           </thead>
@@ -49,7 +69,7 @@
           @endforeach
           </tbody>
         </table>
-        {{$quizzes->links();}}
+        {{$quizzes->withQueryString()->links();}}
       </div>
     </div>
 </x-app-layout>

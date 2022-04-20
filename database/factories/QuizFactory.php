@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 
 class QuizFactory extends Factory
@@ -20,8 +21,10 @@ class QuizFactory extends Factory
      */
     public function definition()
     {
+         $title = $this->faker->sentence(rand(3,7));
         return [
-            'title'=>$this->faker->sentence(rand(3,7)),
+            'title'=>$title,
+            'slug'=>Str::slug($title),
             'description'=>$this->faker->text(200),
         ];
     }
