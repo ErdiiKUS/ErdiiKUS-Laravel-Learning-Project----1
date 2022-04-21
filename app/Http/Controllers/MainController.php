@@ -18,5 +18,10 @@ class MainController extends Controller
       return view('quiz_detail',compact('quiz'));
     }
 
+    public function quiz($slug){
+      $quiz = Quiz::whereSlug($slug)->with('questions')->first();
+      return view('quiz',compact('quiz'));
+    }
+
 
 }
