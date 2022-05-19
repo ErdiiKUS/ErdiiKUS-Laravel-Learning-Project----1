@@ -1,11 +1,11 @@
-<x-app-layout>
+  <x-app-layout>
     <x-slot name="header">{{$quiz->title}}</x-slot>
 
     <div class="card">
       <div class="card-body">
         <p class="card-text">
-          <form class="" action="" method="post">
-
+          <form  action=" {{ route('quiz.result', $quiz->slug)}}" method="POST">
+            @csrf
 
             @foreach ($quiz->questions as  $question)
                #{{$loop->iteration}} <strong> {{$question->question}}</strong>
@@ -13,25 +13,25 @@
                <img src="{{asset($question->image)}}" style="width:10%" class="img-responsive">
                @endif
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="{{$question->id}}" id="quiz{{$question->id}}" value="{{$question->answer1}}" required>
+                <input class="form-check-input" type="radio" name="{{$question->id}}" id="quiz{{$question->id}}" value="answer1" required>
                 <label class="form-check-label" for="quiz{{$question->id}}1">
                   {{$question->answer1}}
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="{{$question->id}}" id="quiz{{$question->id}}" value="{{$question->answer2}}" required>
+                <input class="form-check-input" type="radio" name="{{$question->id}}" id="quiz{{$question->id}}" value="answer2" required>
                 <label class="form-check-label" for="quiz{{$question->id}}2">
                   {{$question->answer2}}
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="{{$question->id}}" id="quiz{{$question->id}}" value="{{$question->answer3}}" required>
+                <input class="form-check-input" type="radio" name="{{$question->id}}" id="quiz{{$question->id}}" value="answer3" required>
                 <label class="form-check-label" for="quiz{{$question->id}}3">
                   {{$question->answer3}}
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="{{$question->id}}" id="quiz{{$question->id}}" value="{{$question->answer4}}" required>
+                <input class="form-check-input" type="radio" name="{{$question->id}}" id="quiz{{$question->id}}" value="answer4" required>
                 <label class="form-check-label" for="quiz {{$question->id}}4">
                   {{$question->answer4}}
                 </label>

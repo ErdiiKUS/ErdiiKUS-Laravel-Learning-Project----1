@@ -17,7 +17,7 @@
             <div class="form-group">
               <label>Quiz Durumu</label>
               <select class="form-control" name="status">
-                <option @if($quiz->questions_count < 11) disabled @endif @if($quiz->status==='publis') selected @endif value="publis">
+                <option @if($quiz->questions_count < 4) disabled @endif @if($quiz->status==='publis') selected @endif value="publis">
                   Aktif</option>
                 <option @if($quiz->status==='passive') selected @endif value="passive">Pasif</option>
                 <option @if($quiz->status==='draft') selected @endif value="draft">Taslak</option>
