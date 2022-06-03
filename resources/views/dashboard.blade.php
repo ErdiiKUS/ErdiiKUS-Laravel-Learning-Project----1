@@ -23,7 +23,23 @@
       </div>
 
         <div class="col-md-4">
-          deneme
+          <div class="card" style="width: 18rem;">
+            <div class="card-header">
+              Featured
+            </div>
+            <ul class="list-group list-group-flush">
+
+              @foreach ($results as $result)
+                <li class="list-group-item">
+                  <strong>{{$result->point}}</strong> -
+                  <a href="{{route('quiz_detail', $quiz->slug)}}">
+                  {{$quiz->title}}</li>
+                  </a>
+              @endforeach
+
+
+            </ul>
+          </div>
         </div>
 
     </div>
